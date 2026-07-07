@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy — SMS Activator Chrome Extension | Hunks SMS</title>
+<meta name="description" content="Privacy Policy for the SMS Activator Chrome Extension by Hunks SMS / ProxyHunks. Details on data collection, handling, storage and sharing.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono:wght@400;500&family=Karla:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --ink:    #09090b;
+  --ink2:   #111115;
+  --ink3:   #17171d;
+  --line:   #1e1e26;
+  --line2:  #2a2a36;
+  --vi-lo:  #7c3aed;
+  --vi-hi:  #8b5cf6;
+  --chalk:  #a8a7c0;
+  --dust:   #46465e;
+  --ash:    #2e2e40;
+  --white:  #ffffff;
+  --leaf:   #22c55e;
+  --amber:  #f59e0b;
+  --mono:   'IBM Plex Mono', monospace;
+  --sans:   'Karla', sans-serif;
+  --display:'Bebas Neue', sans-serif;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--ink);
+  color: var(--white);
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+body::after {
+  content: '';
+  position: fixed; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+  opacity: 0.028;
+  pointer-events: none;
+  z-index: 9000;
+}
+
+/* NAV */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 500;
+  height: 64px;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 48px;
+  background: rgba(9,9,11,0.94);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--line);
+}
+.n-logo {
+  font-family: var(--display);
+  font-size: 21px; letter-spacing: 2px;
+  color: var(--white); text-decoration: none;
+  display: flex; align-items: center; gap: 11px;
+}
+.n-back {
+  display: flex; align-items: center; gap: 7px;
+  font-family: var(--mono); font-size: 11px; letter-spacing: 1px;
+  color: var(--dust); text-decoration: none;
+  transition: color 0.2s;
+}
+.n-back:hover { color: var(--vi-hi); }
+@media (max-width: 640px) { nav { padding: 0 20px; } }
+
+/* PAGE */
+.page {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 112px 48px 96px;
+}
+@media (max-width: 640px) { .page { padding: 96px 24px 72px; } }
+
+/* HEADER */
+.page-eyebrow {
+  font-family: var(--mono); font-size: 10px; letter-spacing: 3px;
+  color: var(--vi-hi); text-transform: uppercase; margin-bottom: 16px;
+}
+.page-eyebrow::before { content: '// '; color: var(--dust); }
+
+.page-title {
+  font-family: var(--display);
+  font-size: clamp(48px, 7vw, 84px);
+  letter-spacing: 2px; line-height: 0.92;
+  margin-bottom: 24px;
+}
+
+.meta-row {
+  display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
+  margin-bottom: 48px;
+  padding-bottom: 32px;
+  border-bottom: 1px solid var(--line);
+}
+.meta-badge {
+  font-family: var(--mono); font-size: 10px; letter-spacing: 1.5px;
+  padding: 5px 12px; border-radius: 4px;
+}
+.badge-ext {
+  background: rgba(139,92,246,0.09);
+  border: 1px solid rgba(139,92,246,0.22);
+  color: var(--vi-hi);
+}
+.badge-date {
+  background: var(--ink2);
+  border: 1px solid var(--line2);
+  color: var(--dust);
+}
+.badge-id {
+  background: var(--ink2);
+  border: 1px solid var(--line2);
+  color: var(--ash);
+  font-size: 9px;
+  letter-spacing: 0.5px;
+}
+
+/* NOTICE BANNER */
+.notice {
+  display: flex; gap: 14px;
+  background: rgba(139,92,246,0.05);
+  border: 1px solid rgba(139,92,246,0.18);
+  border-radius: 12px; padding: 18px 20px;
+  margin-bottom: 48px;
+}
+.notice-icon {
+  width: 36px; height: 36px; flex-shrink: 0;
+  border: 1px solid rgba(139,92,246,0.22);
+  border-radius: 8px; display: grid; place-items: center;
+}
+.notice-icon svg { width: 16px; height: 16px; stroke: var(--vi-hi); fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+.notice-text { font-size: 13.5px; color: var(--chalk); line-height: 1.72; }
+.notice-text strong { color: var(--white); display: block; margin-bottom: 3px; font-size: 14px; }
+
+/* SECTIONS */
+.section {
+  margin-bottom: 40px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid var(--line);
+}
+.section:last-child { border-bottom: none; margin-bottom: 0; }
+
+.section-num {
+  font-family: var(--mono); font-size: 9px; letter-spacing: 3px;
+  color: var(--dust); margin-bottom: 10px;
+}
+
+.section h2 {
+  font-family: var(--sans); font-size: 13px; font-weight: 800;
+  color: var(--vi-hi); letter-spacing: 0.4px;
+  text-transform: uppercase; margin-bottom: 14px;
+}
+
+.section p {
+  font-size: 14px; color: var(--chalk);
+  line-height: 1.84; margin-bottom: 12px;
+}
+.section p:last-child { margin-bottom: 0; }
+
+.section strong { color: var(--white); }
+
+/* DATA TABLE */
+.data-table {
+  width: 100%;
+  border: 1px solid var(--line2);
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 16px 0;
+}
+.data-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  border-bottom: 1px solid var(--line);
+}
+.data-row:last-child { border-bottom: none; }
+.data-row.header {
+  background: var(--ink2);
+}
+.data-cell {
+  padding: 12px 16px;
+  font-size: 12.5px; line-height: 1.5;
+  border-right: 1px solid var(--line);
+}
+.data-cell:last-child { border-right: none; }
+.data-row.header .data-cell {
+  font-family: var(--mono); font-size: 9.5px;
+  letter-spacing: 1.5px; color: var(--vi-hi);
+  font-weight: 500; text-transform: uppercase;
+}
+.data-row:not(.header) .data-cell { color: var(--chalk); }
+.data-row:not(.header) .data-cell:first-child { color: var(--white); font-weight: 600; }
+@media (max-width: 540px) {
+  .data-row { grid-template-columns: 1fr; }
+  .data-cell { border-right: none; }
+  .data-row.header .data-cell:not(:first-child) { display: none; }
+}
+
+/* PILL LIST */
+.pill-list {
+  display: flex; flex-wrap: wrap; gap: 8px;
+  margin: 12px 0;
+}
+.pill {
+  font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.5px;
+  padding: 5px 12px; border-radius: 4px;
+  background: var(--ink2); border: 1px solid var(--line2);
+  color: var(--chalk);
+}
+.pill.no {
+  color: var(--leaf);
+  background: rgba(34,197,94,0.05);
+  border-color: rgba(34,197,94,0.2);
+}
+
+/* HIGHLIGHT BOX */
+.highlight {
+  background: var(--ink2);
+  border: 1px solid var(--line2);
+  border-radius: 10px;
+  padding: 18px 20px;
+  margin: 16px 0;
+  font-size: 13.5px; color: var(--chalk); line-height: 1.78;
+}
+.highlight.green {
+  background: rgba(34,197,94,0.04);
+  border-color: rgba(34,197,94,0.18);
+}
+.highlight strong { color: var(--white); }
+.highlight.green strong { color: var(--leaf); }
+
+/* CONTACT */
+.contact-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;
+  margin-top: 16px;
+}
+.contact-card {
+  background: var(--ink2);
+  border: 1px solid var(--line2);
+  border-radius: 10px; padding: 16px;
+  text-decoration: none;
+  transition: border-color 0.2s;
+}
+.contact-card:hover { border-color: var(--vi-lo); }
+.contact-type { font-family: var(--mono); font-size: 9px; letter-spacing: 2px; color: var(--dust); text-transform: uppercase; margin-bottom: 5px; }
+.contact-val { font-size: 12.5px; color: var(--vi-hi); font-weight: 600; word-break: break-all; }
+@media (max-width: 540px) { .contact-grid { grid-template-columns: 1fr; } }
+
+/* FOOTER */
+footer {
+  border-top: 1px solid var(--line);
+  padding: 28px 48px;
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: 12px;
+  max-width: 800px; margin: 0 auto;
+}
+.f-brand { font-family: var(--display); font-size: 16px; letter-spacing: 2px; }
+.f-copy { font-family: var(--mono); font-size: 10px; color: var(--ash); letter-spacing: 0.5px; }
+.f-link { font-size: 12px; color: var(--dust); text-decoration: none; font-weight: 600; transition: color 0.2s; }
+.f-link:hover { color: var(--white); }
+@media (max-width: 640px) { footer { padding: 22px 24px; flex-direction: column; text-align: center; } }
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="n-logo" href="https://vnumbers.proxyhunks.xyz/">HUNKS SMS</a>
+  <a class="n-back" href="https://vnumbers.proxyhunks.xyz/">← Back to site</a>
+</nav>
+
+<main class="page">
+
+  <div class="page-eyebrow">Chrome Extension · Legal</div>
+  <h1 class="page-title">PRIVACY<br>POLICY</h1>
+
+  <div class="meta-row">
+    <span class="meta-badge badge-ext">SMS Activator Chrome Extension</span>
+    <span class="meta-badge badge-date">Last updated: July 6, 2026</span>
+    <span class="meta-badge badge-id">Extension ID: ojogcjbcmafecpbfaninbgdinpcckabd</span>
+  </div>
+
+  <div class="notice">
+    <div class="notice-icon">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+    </div>
+    <div class="notice-text">
+      <strong>This policy applies specifically to the SMS Activator Chrome Extension.</strong>
+      It covers what data the extension collects, how it is used, how it is stored, and with whom (if anyone) it is shared. By installing or using the extension, you agree to the terms described here.
+    </div>
+  </div>
+
+  <!-- 1. OVERVIEW -->
+  <div class="section">
+    <div class="section-num">01 / 10</div>
+    <h2>Overview &amp; Scope</h2>
+    <p>The <strong>SMS Activator</strong> extension is published by <strong>ProxyHunks (Hunks SMS)</strong> and is available on the Chrome Web Store. Its purpose is to give users quick access to the Hunks SMS virtual phone number and proxy service directly from their browser — allowing them to browse available numbers, initiate purchases, top up their wallet, activate proxies, and receive SMS verification codes without leaving the current tab.</p>
+    <p>This Privacy Policy describes our practices for the extension only. Our main website privacy policy is available at <a href="https://vnumbers.proxyhunks.xyz/" style="color:var(--vi-hi);">vnumbers.proxyhunks.xyz</a>.</p>
+  </div>
+
+  <!-- 2. DATA COLLECTED -->
+  <div class="section">
+    <div class="section-num">02 / 10</div>
+    <h2>Data We Collect</h2>
+    <p>The SMS Activator extension collects the minimum data necessary to provide its functionality. The table below describes each category of data, its purpose, and how long it is retained.</p>
+
+    <div class="data-table">
+      <div class="data-row header">
+        <div class="data-cell">Data Type</div>
+        <div class="data-cell">Purpose</div>
+        <div class="data-cell">Retention</div>
+      </div>
+      <div class="data-row">
+        <div class="data-cell">Authentication token / session ID</div>
+        <div class="data-cell">Identifies your logged-in session with the Hunks SMS backend so you can purchase numbers, activate proxies, and view your balance</div>
+        <div class="data-cell">Stored locally in chrome.storage.local; cleared on logout or uninstall</div>
+      </div>
+      <div class="data-row">
+        <div class="data-cell">Wallet balance &amp; transaction history</div>
+        <div class="data-cell">Displayed in the extension popup so you can see your credit and purchase history without visiting the website</div>
+        <div class="data-cell">Fetched from our server on demand; not cached beyond the current session</div>
+      </div>
+      <div class="data-row">
+        <div class="data-cell">Selected service &amp; country preferences</div>
+        <div class="data-cell">Remembers your last-used service/country combination to speed up repeat purchases</div>
+        <div class="data-cell">Stored locally in chrome.storage.local; cleared on uninstall</div>
+      </div>
+      <div class="data-row">
+        <div class="data-cell">API request logs (server-side)</div>
+        <div class="data-cell">Debugging, fraud detection, and service reliability monitoring</div>
+        <div class="data-cell">Maximum 30 days, then permanently deleted</div>
+      </div>
+    </div>
+
+    <div class="highlight green">
+      <strong>What we do NOT collect:</strong> The extension does not read, access, or transmit the content of any web page you visit. It does not collect your browsing history, installed extensions list, clipboard content, keystrokes, passwords, payment card details, government ID, or your personal phone number.
+    </div>
+  </div>
+
+  <!-- 3. HOW DATA IS USED -->
+  <div class="section">
+    <div class="section-num">03 / 10</div>
+    <h2>How We Use Your Data</h2>
+    <p>Data collected by the extension is used exclusively for the following purposes:</p>
+    <p><strong>Service delivery</strong> — authenticating your account, displaying your wallet balance, processing number and proxy purchases, and relaying incoming SMS codes to your extension popup.</p>
+    <p><strong>Fraud prevention</strong> — detecting and blocking abuse of the service, including repeated failed purchases and bot-like behaviour.</p>
+    <p><strong>Technical support</strong> — diagnosing errors and responding to support requests you initiate via WhatsApp, Telegram, or email.</p>
+    <p><strong>Service improvement</strong> — aggregated, anonymous usage patterns (e.g., which countries or services are most requested) to improve the product. This data cannot be traced back to individual users.</p>
+    <p>We <strong>do not</strong> use your data for advertising, behavioural profiling, or any purpose unrelated to delivering the virtual number and proxy service.</p>
+  </div>
+
+  <!-- 4. DATA SHARING -->
+  <div class="section">
+    <div class="section-num">04 / 10</div>
+    <h2>Data Sharing &amp; Third Parties</h2>
+    <p>We do not sell, rent, or trade your personal data. Data is shared only in the following limited circumstances:</p>
+    <p><strong>Upstream SMS &amp; proxy providers</strong> — to fulfil a number or proxy purchase, the selected service name and country code are passed to our supplier APIs. No personally identifiable information about you (name, email, phone) is shared with them.</p>
+    <p><strong>M-Pesa / Safaricom</strong> — payment processing for wallet top-ups is handled entirely by Safaricom's STK Push infrastructure. We do not receive, store, or transmit your M-Pesa PIN. Note: M-Pesa payments are initiated through the Hunks SMS website or WhatsApp bot, not directly through the Chrome extension.</p>
+    <p><strong>Cryptomus</strong> — if you choose to top up via crypto, invoice creation and payment confirmation are handled by Cryptomus. We do not receive your wallet's private keys or seed phrase.</p>
+    <p><strong>Legal obligations</strong> — we may disclose data if required to do so by applicable law or a valid legal order. We will notify you to the extent permitted by law.</p>
+    <p>No data is shared with advertising networks, data brokers, analytics platforms, or social media companies.</p>
+
+    <div class="pill-list">
+      <span class="pill no">✓ No data sold</span>
+      <span class="pill no">✓ No ad networks</span>
+      <span class="pill no">✓ No analytics SDKs</span>
+      <span class="pill no">✓ No social tracking</span>
+      <span class="pill no">✓ No data brokers</span>
+    </div>
+  </div>
+
+  <!-- 5. PERMISSIONS -->
+  <div class="section">
+    <div class="section-num">05 / 10</div>
+    <h2>Chrome Permissions Explained</h2>
+    <p>The extension requests only the permissions it needs. Below is a plain-language explanation of each permission declared in the extension manifest.</p>
+
+    <div class="data-table">
+      <div class="data-row header">
+        <div class="data-cell">Permission</div>
+        <div class="data-cell">Why It's Needed</div>
+        <div class="data-cell">What It Does NOT Do</div>
+      </div>
+      <div class="data-row">
+        <div class="data-cell">storage</div>
+        <div class="data-cell">Saves your session token and last-used preferences locally so you stay logged in between browser sessions</div>
+        <div class="data-cell">Does not sync data to Google's servers or any third party</div>
+      </div>
+      <div class="data-row">
+        <div class="data-cell">Host permission: vnumbers.proxyhunks.xyz</div>
+        <div class="data-cell">Allows the extension to communicate with the Hunks SMS API to fetch your balance, available numbers, proxies, and incoming SMS codes</div>
+        <div class="data-cell">Does not grant access to any other website or domain</div>
+      </div>
+      <div class="data-row">
+        <div class="data-cell">notifications (if declared)</div>
+        <div class="data-cell">Shows a desktop notification when your SMS verification code arrives</div>
+        <div class="data-cell">Does not access notification content from other apps</div>
+      </div>
+    </div>
+
+    <p>The extension does not request <strong>tabs</strong>, <strong>webNavigation</strong>, <strong>history</strong>, <strong>bookmarks</strong>, <strong>cookies</strong>, <strong>clipboardRead</strong>, or any other permission that would allow access to your browsing activity.</p>
+  </div>
+
+  <!-- 6. DATA STORAGE & SECURITY -->
+  <div class="section">
+    <div class="section-num">06 / 10</div>
+    <h2>Data Storage &amp; Security</h2>
+    <p><strong>Local storage</strong> — session tokens and preferences are stored using the Chrome Extension Storage API (chrome.storage.local). This data stays on your device and is not accessible to other extensions or websites.</p>
+    <p><strong>Server-side storage</strong> — account and transaction data is stored on our backend servers. We implement the following security measures:</p>
+    <div class="highlight">
+      <strong>Encryption in transit:</strong> All communication between the extension and our API uses HTTPS/TLS 1.2+.<br><br>
+      <strong>Encryption at rest:</strong> Sensitive account data is encrypted in our database.<br><br>
+      <strong>Access controls:</strong> Server access is restricted to authorised personnel only, using role-based access controls and audit logging.<br><br>
+      <strong>Log retention:</strong> Server-side request logs are automatically purged after 30 days.
+    </div>
+    <p>SMS message content (your verification codes) is relayed to you in real time and is <strong>not stored</strong> on our servers beyond the 20-minute active window. After that window closes, the message content is permanently and automatically deleted.</p>
+  </div>
+
+  <!-- 7. USER RIGHTS -->
+  <div class="section">
+    <div class="section-num">07 / 10</div>
+    <h2>Your Rights &amp; Choices</h2>
+    <p>You have the following rights regarding your data:</p>
+    <p><strong>Access</strong> — you may request a copy of the data we hold about your account at any time by contacting us.</p>
+    <p><strong>Deletion</strong> — you may request full deletion of your account and associated data. Deletion requests are processed within 14 days. Note that transaction records required for legal/financial compliance may be retained in anonymised form.</p>
+    <p><strong>Correction</strong> — if any account information is inaccurate, you may request a correction.</p>
+    <p><strong>Opt-out of non-essential communications</strong> — you may opt out of any service update emails by contacting us.</p>
+    <p><strong>Uninstall</strong> — uninstalling the extension immediately clears all locally stored data (session token, preferences) from your device. Server-side data is retained per the retention schedule above unless you submit a deletion request.</p>
+    <p>To exercise any of these rights, contact us using the details in Section 10.</p>
+  </div>
+
+  <!-- 8. COOKIES & TRACKING -->
+  <div class="section">
+    <div class="section-num">08 / 10</div>
+    <h2>Cookies &amp; Tracking</h2>
+    <p>The SMS Activator Chrome extension does not use cookies, web beacons, pixel tags, fingerprinting scripts, or any third-party tracking technology.</p>
+    <p>The extension does not embed Google Analytics, Facebook Pixel, Mixpanel, Segment, or any equivalent analytics or advertising SDK.</p>
+    <p>The extension does not track your activity on websites you visit. It operates entirely within its own popup and communicates only with the Hunks SMS API.</p>
+  </div>
+
+  <!-- 9. CHILDREN -->
+  <div class="section">
+    <div class="section-num">09 / 10</div>
+    <h2>Children's Privacy</h2>
+    <p>The SMS Activator extension and the Hunks SMS service are intended for users aged <strong>18 and older</strong>. We do not knowingly collect personal data from anyone under the age of 18.</p>
+    <p>If you believe a minor has provided us with personal information, please contact us immediately at <a href="mailto:edwardgikara85@gmail.com" style="color:var(--vi-hi);">edwardgikara85@gmail.com</a> and we will promptly delete it.</p>
+  </div>
+
+  <!-- 10. CONTACT -->
+  <div class="section">
+    <div class="section-num">10 / 10</div>
+    <h2>Contact &amp; Policy Updates</h2>
+    <p>If you have questions about this Privacy Policy, want to exercise your data rights, or need to report a privacy concern, reach us through any of the channels below.</p>
+
+    <div class="contact-grid">
+      <a class="contact-card" href="mailto:edwardgikara85@gmail.com">
+        <div class="contact-type">Email</div>
+        <div class="contact-val">edwardgikara85@gmail.com</div>
+      </a>
+      <a class="contact-card" href="https://t.me/eduh356" target="_blank">
+        <div class="contact-type">Telegram</div>
+        <div class="contact-val">@eduh356</div>
+      </a>
+      <a class="contact-card" href="https://wa.me/+254748410321" target="_blank">
+        <div class="contact-type">WhatsApp</div>
+        <div class="contact-val">+254 748 410 321</div>
+      </a>
+    </div>
+
+    <p style="margin-top:24px;">We may update this Privacy Policy from time to time. When we do, the "Last updated" date at the top of this page will be revised. Significant changes will be communicated via the Chrome Web Store listing update notes. Continued use of the extension after any update constitutes your acceptance of the revised policy.</p>
+
+    <div class="highlight">
+      <strong>Policy URL:</strong><br>
+      <span style="font-family:var(--mono);font-size:12px;color:var(--vi-hi);">https://vnumbers.proxyhunks.xyz/privacy-policy.html</span><br><br>
+      Host this file at that path on your domain, then enter the exact URL in the Chrome Developer Dashboard under <strong>Store listing → Privacy practices → Privacy policy URL</strong> for the <strong>SMS Activator</strong> item specifically.
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <span class="f-brand">HUNKS SMS</span>
+  <a class="f-link" href="https://vnumbers.proxyhunks.xyz/">← Main site</a>
+  <span class="f-copy">© 2026 ProxyHunks · SMS Activator Extension</span>
+</footer>
+
+</body>
+</html>
